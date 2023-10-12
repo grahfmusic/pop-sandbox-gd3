@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mx_nothing_cut30.ogg-32ef043653d2a801875354f24fdc4f87.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Audio/Music/mx_nothing_cut30.ogg"
+dest_files=[ "res://.import/mx_nothing_cut30.ogg-32ef043653d2a801875354f24fdc4f87.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

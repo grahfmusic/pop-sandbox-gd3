@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mx_sunday_intensity1.ogg-b4c3860eba80f713050a47ff5544140e.oggstr"
+
+[deps]
+
+source_file="res://popochiu/Audio/Music/mx_sunday_intensity1.ogg"
+dest_files=[ "res://.import/mx_sunday_intensity1.ogg-b4c3860eba80f713050a47ff5544140e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

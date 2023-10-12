@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://popochiu/Rooms/101/Room101.gd" type="Script" id=1]
 [ext_resource path="res://addons/Popochiu/Engine/Objects/Prop/PopochiuProp.tscn" type="PackedScene" id=3]
@@ -161,10 +161,10 @@ shader_param/offset = 0.0
 [sub_resource type="Environment" id=13]
 background_mode = 4
 background_energy = 7.02
-ambient_light_color = Color( 0.137255, 0.909804, 0.819608, 1 )
+ambient_light_color = Color( 0.901961, 0.423529, 0.313726, 1 )
 ambient_light_energy = 9.0
 ambient_light_sky_contribution = 0.21
-tonemap_mode = 3
+tonemap_mode = 4
 tonemap_exposure = 0.99
 tonemap_white = 0.6
 auto_exposure_enabled = true
@@ -172,8 +172,10 @@ auto_exposure_scale = 0.6
 auto_exposure_min_luma = 1.1
 auto_exposure_max_luma = 0.92
 auto_exposure_speed = 4.05
-ssao_radius = 25.47
-ssao_intensity = 33.4
+ss_reflections_enabled = true
+ssao_enabled = true
+ssao_radius = 63.78
+ssao_intensity = 84.73
 ssao_radius2 = 44.25
 ssao_intensity2 = 24.7
 ssao_bias = 3.022
@@ -187,19 +189,19 @@ dof_blur_far_distance = 13.9
 dof_blur_far_transition = 37.57
 dof_blur_far_amount = 0.35
 dof_blur_near_enabled = true
-dof_blur_near_distance = 2.6
-dof_blur_near_transition = 3.58
-dof_blur_near_amount = 0.27
+dof_blur_near_distance = 2.12
+dof_blur_near_transition = 2.21
+dof_blur_near_amount = 0.3
 dof_blur_near_quality = 2
 glow_enabled = true
+glow_levels/2 = true
 glow_levels/3 = false
-glow_levels/4 = true
 glow_levels/5 = false
-glow_intensity = 2.5
-glow_strength = 0.75
-glow_bloom = 0.32
-glow_blend_mode = 1
-glow_hdr_threshold = 1.72
+glow_intensity = 2.13
+glow_strength = 0.59
+glow_bloom = 0.3
+glow_blend_mode = 0
+glow_hdr_threshold = 1.64
 glow_hdr_luminance_cap = 54.67
 glow_hdr_scale = 1.48
 glow_bicubic_upscale = true
@@ -277,6 +279,9 @@ outline_color = Color( 0.0901961, 0.0196078, 0.0196078, 1 )
 use_mipmaps = true
 extra_spacing_char = 1
 font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "particle_a"
 
 [node name="Room101" type="YSort"]
 sort_enabled = false
@@ -367,12 +372,14 @@ stretch_mode = 1
 environment = SubResource( 13 )
 
 [node name="TitleText" parent="Props" instance=ExtResource( 3 )]
+light_mask = 2
 position = Vector2( 160, 90 )
 z_index = -1
 clickable = false
 baseline = 180
 
 [node name="pixelate" type="TextureRect" parent="Props/TitleText"]
+light_mask = 2
 margin_left = -160.0
 margin_top = -106.0
 margin_right = 160.0
@@ -386,12 +393,14 @@ size = Vector2( 320, 180 )
 size_override_stretch = true
 own_world = true
 transparent_bg = true
-debanding = true
-sharpen_intensity = 0.085
-hdr = false
+msaa = 2
+fxaa = true
+sharpen_intensity = 0.518
+use_32_bpc_depth = true
 audio_listener_enable_2d = true
 
 [node name="TitleTextRich" type="RichTextLabel" parent="Props/TitleText/Viewport"]
+light_mask = 2
 material = SubResource( 10 )
 anchor_left = 0.061
 anchor_right = 0.151
@@ -428,3 +437,6 @@ sort_enabled = false
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/particle_a = SubResource( 14 )

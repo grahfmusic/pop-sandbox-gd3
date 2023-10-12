@@ -15,6 +15,7 @@ var state: Data = preload('Room101.tres')
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func on_room_entered() -> void:
+	A.mx_explore_main.play_now(4)
 	G.hide_interface()
 	# fades out screen really quickly on load enter as there is no previous
 	# room and then starts the audio track for room which fades in at the length
@@ -23,7 +24,6 @@ func on_room_entered() -> void:
 	E.run([
 		E.play_transition(TransitionLayer.FADE_IN, 0.01)
 	])
-	A.play_music_no_block('title', 3, 5)
 	
 
 # What happens when the room changing transition finishes. At this point the room
